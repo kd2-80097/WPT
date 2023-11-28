@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title style="color: red;">Calculator</title>
+    <style>
+        .boxStyle {
+            border: 1px rgb(2, 2, 2);
+            margin: 20px;
+            text-align: center;
+        }
+
+        .buttonStyle {
+            border-color: brown;
+            background-color: transparent;
+            width: 90%;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 25px;
+        }
+
+
+        input {
+            width: 90%;
+            height: 35px;
+            border-style: solid;
+            border-color: Red;
+            color: black;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        td {
+
+            width: 25%;
+            font-size: 25px;
+        }
+
+        tr {
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <table align="center" style="height: 400px;width: 700px; position: absolute; left: 300px; top: 150px;" border="1">
+        <center>
+            <table align="center" style="width: 50%;border-spacing: 0 25px; position: absolute; left: 340px; top: 150px;">
+                <tr>
+                    <td colspan="4" style="text-align: center;  text-decoration: underline;"><b>Calculator</b></td>
+                </tr>
+        
+                <tr>
+                    <td colspan="2" style="color: blue;">Enter Number 1</td>
+                    <td colspan="2" class="tdcol">
+                        <input type="number" name="Number1" id="input1" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="color: blue;">Enter Number 2</td>
+                    <td colspan="2">
+                        <input type="number" name="Number2" id="input2" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="color: blue;">Result</td>
+                    <td colspan="2">
+                        <input disabled name="text" name="value" id="result" onclick="myFunction()" />
+                    </td>
+                </tr>
+        
+                <tr>
+                    <td><button onclick="operation(value)" class="buttonStyle" type="button" name="Operation"
+                            value="+" style="color: indigo;">Addition</button></td>
+                    <td><button onclick="operation(value)" class="buttonStyle" type="button" name="Operation"
+                            value="-" style="color: indigo;">Subtraction</button></td>
+                    <td><button onclick="operation(value)" class="buttonStyle" type="button" name="Operation"
+                            value="*" style="color: indigo;">Multiplication</button></td>
+                    <td><button onclick="operation(value)" class="buttonStyle" type="button" name="Operation"
+                            value="/" style="color: indigo;">Division</button></td>
+                </tr>
+        
+            </table>
+        </center>
+    </table>
+    <script>
+        function operation(operand) {
+            var result; 
+            var refToInput1 = eval(document.getElementById("input1").value);
+            var refToInput2 = eval(document.getElementById("input2").value);
+            var refToResult = document.getElementById("result");
+
+            switch (operand) {
+                case '+':
+                    result = refToInput1 + refToInput2;
+                    break;
+                case '-':
+                    result = refToInput1 - refToInput2;
+                    break;
+                case '/':
+                    result = refToInput1 / refToInput2; 
+                    break;
+                case '*':
+                    result = refToInput1 * refToInput2; 
+                    break;
+            }
+
+            refToResult.value = result;
+        }
+    </script>
+</body>
+
+</html>
